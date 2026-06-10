@@ -1,0 +1,13 @@
+{
+  ":demo-static:": {
+    "path": "~/Pictures/webex-emotes/demo-static.png",
+    "mode": "image",
+    "send": false
+  },
+  ":demo-animated:": {
+    "path": "~/Pictures/webex-emotes/demo-animated.gif",
+    "mode": "file",
+    "send": false
+  },
+  ":demo-shortcut:": "~/Pictures/webex-emotes/demo-shortcut.png"
+}
