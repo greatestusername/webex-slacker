@@ -60,16 +60,27 @@ Then enable:
 System Settings > Privacy & Security > Accessibility > Hammerspoon
 ```
 
-4. Scrape Slack custom emotes from your logged-in browser session and write them directly to Hammerspoon's config:
+4. Scrape Slack custom emotes from your logged-in browser session and write them directly to Hammerspoon's config.
+
+Set `--workspace` to your Slack workspace subdomain. For example, if your Slack URL is `https://acme.slack.com`, use `--workspace acme`:
 
 ```sh
 node scripts/scrape_slack_emotes.mjs \
-  --workspace your-workspace \
+  --workspace acme \
   --download-dir ~/.hammerspoon/webex-emotes/slack-emotes \
   --config ~/.hammerspoon/webex-emotes/emotes.json
 ```
 
-5. When the Chrome-compatible browser opens, log in to Slack if needed. Make sure the custom emoji page is visible, then return to the terminal and press Enter.
+If your Slack login redirects through a different URL or you are not sure what the subdomain is, pass the full custom emoji page URL instead:
+
+```sh
+node scripts/scrape_slack_emotes.mjs \
+  --url "https://acme.slack.com/customize/emoji" \
+  --download-dir ~/.hammerspoon/webex-emotes/slack-emotes \
+  --config ~/.hammerspoon/webex-emotes/emotes.json
+```
+
+5. When the Chrome-compatible browser opens, log in to Slack if needed. Make sure the custom emoji page is visible, then return to the terminal and **press Enter**.
 
 6. Reload Hammerspoon from the menu bar, or press:
 
@@ -246,23 +257,23 @@ Check Node. This script requires Node 22+ for built-in `fetch` and `WebSocket` s
 node --version
 ```
 
-Run against any workspace subdomain:
+Run against any workspace subdomain. If your Slack URL is `https://acme.slack.com`, the workspace is `acme`:
 
 ```sh
-node scripts/scrape_slack_emotes.mjs --workspace your-workspace
+node scripts/scrape_slack_emotes.mjs --workspace acme
 ```
 
 Or pass the full page URL:
 
 ```sh
-node scripts/scrape_slack_emotes.mjs --url "https://your-workspace.slack.com/customize/emoji"
+node scripts/scrape_slack_emotes.mjs --url "https://acme.slack.com/customize/emoji"
 ```
 
 Write directly to Hammerspoon:
 
 ```sh
 node scripts/scrape_slack_emotes.mjs \
-  --workspace your-workspace \
+  --workspace acme \
   --download-dir ~/.hammerspoon/webex-emotes/slack-emotes \
   --config ~/.hammerspoon/webex-emotes/emotes.json
 ```
@@ -271,7 +282,7 @@ For very large workspaces, use a longer scroll budget:
 
 ```sh
 node scripts/scrape_slack_emotes.mjs \
-  --url "https://your-workspace.slack.com/customize/emoji" \
+  --url "https://acme.slack.com/customize/emoji" \
   --download-dir ~/.hammerspoon/webex-emotes/slack-emotes \
   --config ~/.hammerspoon/webex-emotes/emotes.json \
   --max-scroll-rounds 5000 \
