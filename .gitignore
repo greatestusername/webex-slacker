@@ -1,3 +1,14 @@
+# project specifics
+.browser-profile/
+slack-emotes/
+emotes.generated.json
+*.log
+.env
+.env.*
+*.token
+slack-token
+
+
 # Compiled Lua sources
 luac.out
 
@@ -38,4 +49,5 @@ luac.out
 *.i*86
 *.x86_64
 *.hex
+
 
