@@ -1,17 +1,14 @@
 # webex-slacker
 **Turn your Slack emotes into Webex auto-pasted gifs**
 
-Small **macOS** utility for typing custom emote aliases in Webex and replacing them with image/file pastes.
+Small **macOS** utility for typing custom emote aliases in Webex and replacing them with image/file pastes. With **Tab completion**.
 
-Example:
 
-```text
-:demo-emote:
-```
-
-When the alias is typed, Hammerspoon deletes the alias, puts the configured image on the clipboard, and sends `Cmd+V`. Webex should treat the pasted image/file the same way it treats a manually pasted screenshot or image.
+When the alias is typed (e.g. `:tada-reverse:`), Hammerspoon deletes the alias, puts the configured image on the clipboard, and sends `Cmd+V`. Webex should treat the pasted image/file the same way it treats a manually pasted screenshot or image.
 
 This intentionally does not inject into Webex, patch memory, or depend on private Webex internals. It uses macOS Accessibility and Clipboard APIs through Hammerspoon.
+
+You could easily slopcode this for Windows also... I just don't have a need.
 
 ## Files
 
